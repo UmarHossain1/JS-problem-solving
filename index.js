@@ -28,7 +28,7 @@ function sendNotification(email) {
   return userName + " sent you an email from " + domainName;
 }
 
-// *third problem
+// *problem 3
 
 function checkDigitsInName(name) {
   if (typeof name !== "string") {
@@ -44,7 +44,7 @@ function checkDigitsInName(name) {
   return false;
 }
 
-// *fourth problem
+// *problem 4
 
 function calculateFinalScore(obj) {
   if (typeof obj !== "object") {
@@ -64,4 +64,30 @@ function calculateFinalScore(obj) {
   if (finalScore <= 80) {
     return false;
   }
+}
+
+// *problem 5
+
+function waitingTime(waitingTimes, serialNumber) {
+  if (!Array.isArray(waitingTimes) || typeof serialNumber !== "number") {
+    return "Invalid Input";
+  }
+
+  let sum = 0;
+
+  for (let num of waitingTimes) {
+    sum = num + sum;
+  }
+
+  let avgTime = sum / waitingTimes.length;
+
+  avgTime = Math.round(avgTime);
+
+  let isratSerialNumber = serialNumber - 1;
+
+  let remainingPeople = isratSerialNumber - waitingTimes.length;
+
+  let isratWaitingTime = remainingPeople * avgTime;
+
+  return isratWaitingTime;
 }
